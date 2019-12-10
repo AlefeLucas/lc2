@@ -8,13 +8,6 @@ import data_structure.token.TokenType
 /**
  * Subclasse de data_structure.token.Token para identificadores, contendo o tipo e a classe do ID
  */
-class TokenID(key: String, var type: DataType? = null, var klass: Class? = null) : Token(key,
-    TokenType.ID
-) {
-
-    override fun toString(): String {
-
-        return "<\"$key\", ${value.name}, ${klass?.name}, ${type?.name}>"
-    }
-
+class TokenID(key: String, var type: DataType? = null, var klass: Class? = null) : Token(key, TokenType.ID) {
+    override fun toString(): String = "<\"$key\", ${value.name}, ${klass?.name}, ${type?.name}>"
 }

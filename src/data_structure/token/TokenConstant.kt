@@ -13,7 +13,7 @@ class TokenConstant(override var key: String, var type: DataType) : Token(key, T
      * Inicializa o token com o respectivo tipo de constante
      */
     init {
-        constant = when(type){
+        constant = when (type) {
             INTEGER -> key.toShort(10)
             BYTE -> getByte(key)
             STRING -> key.substring(1, key.length - 1).replace("''", "'", false)
@@ -21,9 +21,9 @@ class TokenConstant(override var key: String, var type: DataType) : Token(key, T
         }
     }
 
-    private fun getByte(lexeme: String) : Short{
-        val s = lexeme.toLowerCase().replace('h', 'x').toShort(16)
-        if(s in 0..255){
+    private fun getByte(lexeme: String): Short {
+        val s = lexeme.replace('h', 'x', true).toShort(16)
+        if (s in 0..255) {
             return s
         } else {
             throw IllegalStateException("Erro")
@@ -33,10 +33,9 @@ class TokenConstant(override var key: String, var type: DataType) : Token(key, T
     /**
      * Converte para string para permitir visualizacao do conteudo do token
      */
-    override fun toString(): String {
-        return when(this.type){
-            STRING -> "<\"$key\", ${value.name}, \"$constant\", ${type.name}>"
-            else ->  "<\"$key\", ${value.name}, $constant, ${type.name}>"
-        }
+    override fun toString(): String = when (this.type) {
+        STRING -> "<\"$key\", ${value.name}, \"$constant\", ${type.name}>"
+        else -> "<\"$key\", ${value.name}, $constant, ${type.name}>"
     }
+
 }

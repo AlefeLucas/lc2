@@ -99,13 +99,11 @@ fun validateSourceFile(sourceFile: File): Boolean {
 /**
  * Verifica se a string contem um nome de arquivo de saida valido (terminando em ".asm" case insensitive)
  */
-fun validOutputName(outputFileName: String): Boolean {
-    return outputFileName.matches(".*[.][aA][sS][mM]$".toRegex())
-}
+fun validOutputName(outputFileName: String): Boolean = outputFileName.matches(".*[.][aA][sS][mM]$".toRegex())
+
 
 /**
  * Verifica se a string contem um nome de arquivo fonte valido (terminando em ".l" ou ".L")
  */
-fun validSourceName(sourceFilePath: String): Boolean {
-    return sourceFilePath.matches(".*[.][lL]$".toRegex())
-}
+fun validSourceName(sourceFilePath: String): Boolean = sourceFilePath.matches(".*[.][lL]$".toRegex())
+
